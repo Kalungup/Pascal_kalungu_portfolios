@@ -1,0 +1,128 @@
+/* Fonts extracted directly from the source PDF (Inter + Rubik, subsetted) */
+@font-face{ font-family:'Inter-Medium'; src:url('fonts/Inter-Medium.ttf') format('truetype'); }
+@font-face{ font-family:'Inter-Regular'; src:url('fonts/Inter-Regular.ttf') format('truetype'); }
+@font-face{ font-family:'Inter-Bold'; src:url('fonts/Inter-Bold.ttf') format('truetype'); }
+@font-face{ font-family:'Rubik-Medium'; src:url('fonts/Rubik-Medium.ttf') format('truetype'); }
+@font-face{ font-family:'Rubik-Bold'; src:url('fonts/Rubik-Bold.ttf') format('truetype'); }
+
+:root{
+  --ink:#000000;
+  --body:#3d3d3d;
+  --body-light:#60696b;
+  --accent:#1d90ff;
+  --page-w:794px;
+  --margin:33px;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:#e7e7e7;
+  font-family:'Inter-Regular', sans-serif;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:24px;
+  padding:24px 0 60px;
+}
+
+.page{
+  position:relative;
+  width:var(--page-w);
+  min-height:1123px;
+  background:#ffffff;
+  box-shadow:0 2px 14px rgba(0,0,0,0.18);
+  padding:29px var(--margin) 40px;
+}
+
+/* ---------- header (page 1 only) ---------- */
+.header{ position:relative; margin-bottom:16px; }
+.name{ font-family:'Rubik-Medium'; font-size:26px; color:var(--ink); }
+.tagline{ font-family:'Rubik-Medium'; font-size:12.5px; color:var(--accent); margin-top:3px; }
+
+.contact-row{
+  display:flex; flex-wrap:wrap; gap:22px;
+  margin-top:20px;
+  font-family:'Inter-Bold'; font-size:10px; color:var(--body);
+}
+.contact-row a{ color:var(--body); text-decoration:none; }
+.contact-item{ display:flex; align-items:center; gap:6px; }
+.contact-item svg{ flex-shrink:0; }
+
+.monogram{
+  position:absolute; top:0; right:0;
+  width:56px; height:56px; border-radius:50%;
+  border:1.5px solid var(--ink);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Inter-Medium'; font-size:20px; color:var(--ink);
+}
+
+/* ---------- two-column layout ---------- */
+.columns{ display:grid; grid-template-columns:430px 1fr; column-gap:19px; }
+.col-right{ padding-left:0; }
+
+section{ margin-bottom:20px; }
+h2.section-title{
+  font-family:'Rubik-Medium'; font-size:13.5px; color:var(--ink);
+  margin:0 0 12px;
+}
+
+/* ---------- experience / education blocks ---------- */
+.job{ margin-bottom:18px; }
+.job:last-child{ margin-bottom:0; }
+.job-title{ font-family:'Rubik-Medium'; font-size:11.5px; color:var(--ink); margin:0; }
+.job-company{ font-family:'Inter-Bold'; font-size:10.5px; color:var(--accent); margin:3px 0 0; }
+.job-dates{ font-family:'Inter-Regular'; font-size:9px; color:var(--body); margin:2px 0 8px; }
+
+ul.bullets{ margin:0; padding-left:15px; }
+ul.bullets li{
+  font-family:'Inter-Regular'; font-size:9.8px; line-height:14px; color:var(--body);
+  margin-bottom:6px; padding-left:2px;
+}
+ul.bullets li::marker{ color:var(--body); font-size:9px; }
+ul.bullets li:last-child{ margin-bottom:0; }
+
+p.body-text{ font-family:'Inter-Regular'; font-size:9.8px; line-height:14px; color:var(--body); margin:0; }
+
+.cert-item{ margin-bottom:14px; }
+.cert-item:last-child{ margin-bottom:0; }
+.cert-name{ font-family:'Inter-Bold'; font-size:10.5px; color:var(--ink); margin:0; }
+.cert-issuer{ font-family:'Inter-Regular'; font-size:9.8px; color:var(--body); margin:2px 0 0; }
+
+/* ---------- key achievements ---------- */
+.achievement{ display:flex; gap:10px; margin-bottom:20px; }
+.achievement:last-child{ margin-bottom:0; }
+.achievement .icon{ flex-shrink:0; margin-top:2px; }
+.achievement-title{ font-family:'Inter-Bold'; font-size:10.5px; color:var(--ink); margin:0; }
+.achievement-desc{ font-family:'Inter-Regular'; font-size:9.8px; line-height:14px; color:var(--body); margin:4px 0 0; }
+
+/* ---------- education ---------- */
+.edu-degree{ font-family:'Rubik-Medium'; font-size:11.5px; color:var(--ink); line-height:14.5px; margin:0; }
+.edu-row{ display:flex; justify-content:space-between; align-items:baseline; margin-top:5px; }
+.edu-school{ font-family:'Inter-Bold'; font-size:10.5px; color:var(--accent); margin:0; }
+.gpa-badge{ font-family:'Inter-Regular'; font-size:9px; color:var(--body-light); text-align:right; white-space:nowrap; }
+.gpa-badge .num{ font-family:'Inter-Bold'; font-size:9.8px; color:var(--accent); }
+.edu-dates{ font-family:'Inter-Regular'; font-size:9px; color:var(--body); margin:2px 0 6px; }
+
+/* ---------- skills ---------- */
+.skill-category{ font-family:'Rubik-Bold'; font-size:10.5px; color:var(--accent); margin:0 0 10px; }
+.skill-category:not(:first-child){ margin-top:18px; }
+.skill-tags{ display:flex; flex-wrap:wrap; gap:8px 26px; }
+.skill-tags span{ font-family:'Inter-Bold'; font-size:9.8px; color:var(--body); }
+
+/* ---------- languages ---------- */
+.lang-item{ margin-bottom:12px; }
+.lang-name{ font-family:'Inter-Bold'; font-size:10.5px; color:var(--ink); margin:0; }
+.lang-level{ font-family:'Inter-Regular'; font-size:9.8px; color:var(--body); margin:3px 0 0; }
+
+@media print{
+  body{ background:#fff; gap:0; padding:0; }
+  .page{ box-shadow:none; margin:0; }
+}
+
+@media (max-width:850px){
+  body{ padding:0; }
+  .page{ width:100%; min-height:0; box-shadow:none; }
+  .columns{ grid-template-columns:1fr; }
+}
