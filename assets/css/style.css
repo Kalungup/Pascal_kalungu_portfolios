@@ -3077,3 +3077,21 @@ Logo
 .close-modal:hover{
     color:#4f8cff;
 }
+
+.project-highlights {
+    list-style: none;
+    padding: 0;
+}
+
+.project-highlights li {
+    position: relative;
+    padding-left: 28px;
+}
+
+.project-highlights li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #25d9ff;
+    font-weight: bold;
+}
