@@ -3078,3 +3078,22 @@ Logo
     color:#4f8cff;
 }
 
+.achievement-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.achievement-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+.achievement-list li i {
+    color: #f4b400;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
