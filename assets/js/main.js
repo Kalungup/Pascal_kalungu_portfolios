@@ -74,3 +74,37 @@ document.addEventListener("DOMContentLoaded", () => {
     sections.forEach(section => observer.observe(section));
 
 });
+
+<script>
+const modal = document.getElementById("certificateModal");
+const modalImg = document.getElementById("certificateImage");
+const closeBtn = document.querySelector(".close-modal");
+
+document.querySelectorAll(".view-certificate").forEach(link => {
+    link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        modalImg.src = this.dataset.image;
+        modal.style.display = "flex";
+    });
+});
+
+closeBtn.onclick = () => {
+    modal.style.display = "none";
+    modalImg.src = "";
+};
+
+modal.onclick = (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+        modalImg.src = "";
+    }
+};
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        modal.style.display = "none";
+        modalImg.src = "";
+    }
+});
+</script>
