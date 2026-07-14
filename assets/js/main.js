@@ -75,36 +75,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-<script>
-const modal = document.getElementById("certificateModal");
-const modalImg = document.getElementById("certificateImage");
-const closeBtn = document.querySelector(".close-modal");
+document.addEventListener("DOMContentLoaded", () => {
 
-document.querySelectorAll(".view-certificate").forEach(link => {
-    link.addEventListener("click", function (e) {
-        e.preventDefault();
+    const modal = document.getElementById("certificateModal");
+    const modalImg = document.getElementById("certificateImage");
+    const closeBtn = document.querySelector(".close-modal");
 
-        modalImg.src = this.dataset.image;
-        modal.style.display = "flex";
+    document.querySelectorAll(".view-certificate").forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            modalImg.src = this.dataset.image;
+            modal.style.display = "flex";
+        });
     });
-});
 
-closeBtn.onclick = () => {
-    modal.style.display = "none";
-    modalImg.src = "";
-};
-
-modal.onclick = (e) => {
-    if (e.target === modal) {
+    closeBtn.addEventListener("click", () => {
         modal.style.display = "none";
         modalImg.src = "";
-    }
-};
+    });
 
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        modal.style.display = "none";
-        modalImg.src = "";
-    }
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+            modalImg.src = "";
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            modal.style.display = "none";
+            modalImg.src = "";
+        }
+    });
+
 });
-</script>
