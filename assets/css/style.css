@@ -3078,27 +3078,3 @@ Logo
     color:#4f8cff;
 }
 
-.project-highlights{
-    list-style:none;
-    padding:0;
-    margin:2rem 0;
-}
-
-.project-highlights li{
-    position:relative;
-    padding-left:2rem;
-    margin-bottom:1rem;
-    line-height:1.8;
-    color:#d9e2ec;
-    font-size:1rem;
-}
-
-.project-highlights li::before{
-    content:"✔";
-    position:absolute;
-    left:0;
-    top:2px;
-    color:#22d3ee;
-    font-size:1rem;
-    font-weight:700;
-}
