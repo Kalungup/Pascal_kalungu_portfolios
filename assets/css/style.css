@@ -922,107 +922,15 @@ Skill Blocks
    CERTIFICATIONS
 ====================================================== */
 
-.cert-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+.cert-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
 }
 
-.cert-row {
-    display: grid;
-    grid-template-columns: 60px 240px 170px 1fr 150px;
-    align-items: center;
-    gap: 20px;
-
-    padding: 18px 24px;
-
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-
-    transition: all .3s ease;
-}
-
-.cert-row:hover {
-    border-color: var(--teal);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(47, 227, 180, .08);
-}
-
-/* Logo */
-
-.cert-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.cert-logo img {
-    width: 42px;
-    height: 42px;
-    object-fit: contain;
-}
-
-/* Title */
-
-.cert-title h4 {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--ink);
-}
-
-.cert-title p {
-    margin: 4px 0 0;
-    font-size: .88rem;
-    color: var(--ink-soft);
-}
-
-/* Issuer */
-
-.cert-issuer {
-    font-size: .92rem;
-    color: var(--ink-soft);
-    font-weight: 500;
-}
-
-/* Skills */
-
-.cert-skills {
-    font-size: .9rem;
-    color: var(--ink-soft);
-    line-height: 1.5;
-}
-
-/* Actions */
-
-.cert-actions {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 18px;
-}
-
-.cert-link {
-    text-decoration: none;
-    font-size: .9rem;
-    font-weight: 600;
-    color: var(--teal);
-    transition: .25s;
-    white-space: nowrap;
-}
-
-.cert-link:hover {
-    color: var(--amber);
-}
-
-/* Divider */
-
-.cert-row + .cert-row {
-    margin-top: 2px;
-}
-
-/* Header */
+/* ------------------------------------
+   Header
+------------------------------------ */
 
 .cert-header{
     display:grid;
@@ -1030,7 +938,7 @@ Skill Blocks
     align-items:center;
     gap:20px;
 
-    padding:0 24px 14px;
+    padding:0 24px 12px;
     margin-bottom:8px;
 
     border-bottom:1px solid var(--line);
@@ -1044,79 +952,199 @@ Skill Blocks
     color:var(--ink-soft);
 }
 
-.cert-header div{
+.cert-header > div{
+    white-space:nowrap;
+}
+
+/* ------------------------------------
+   Row
+------------------------------------ */
+
+.cert-row{
+    display:grid;
+    grid-template-columns:60px 240px 170px 1fr 150px;
+    align-items:center;
+    gap:20px;
+
+    padding:18px 24px;
+
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+
+    transition:.3s ease;
+}
+
+.cert-row:hover{
+    border-color:var(--teal);
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px rgba(47,227,180,.08);
+}
+
+.cert-row + .cert-row{
+    margin-top:2px;
+}
+
+/* ------------------------------------
+   Logo
+------------------------------------ */
+
+.cert-logo{
     display:flex;
     align-items:center;
+    justify-content:center;
+}
+
+.cert-logo img{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+}
+
+/* ------------------------------------
+   Title
+------------------------------------ */
+
+.cert-title h4{
+    margin:0;
+    font-size:1rem;
+    font-weight:600;
+    color:var(--ink);
+}
+
+/* ------------------------------------
+   Issuer
+------------------------------------ */
+
+.cert-issuer{
+    font-size:.92rem;
+    font-weight:500;
+    color:var(--ink-soft);
+}
+
+/* ------------------------------------
+   Skills
+------------------------------------ */
+
+.cert-skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.cert-skills span{
+    display:inline-flex;
+    align-items:center;
+
+    padding:3px 10px;
+
+    border-radius:999px;
+
+    font-size:.66rem;
+    font-weight:500;
+    line-height:1;
+
+    color:var(--amber);
+
+    background:rgba(232,163,61,.08);
+    border:1px solid rgba(232,163,61,.22);
+}
+
+/* ------------------------------------
+   Actions
+------------------------------------ */
+
+.cert-actions{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:16px;
+}
+
+.cert-link{
+    text-decoration:none;
+    font-size:.85rem;
+    font-weight:600;
+    color:var(--teal);
+    transition:.25s;
+    white-space:nowrap;
+}
+
+.cert-link:hover{
+    color:var(--amber);
 }
 
 /* ======================================================
    RESPONSIVE
 ====================================================== */
 
-@media (max-width: 992px) {
+@media (max-width:992px){
 
-   .cert-header{
-    display:none;
-    }
-    
-    .cert-row {
-        grid-template-columns: 50px 1fr;
-        gap: 12px 18px;
+    .cert-header{
+        display:none;
     }
 
-    .cert-logo {
-        grid-row: span 2;
+    .cert-row{
+        grid-template-columns:50px 1fr;
+        gap:12px 18px;
+        padding:16px;
     }
 
-    .cert-title {
-        grid-column: 2;
+    .cert-logo{
+        grid-row:span 2;
     }
 
-    .cert-issuer {
-        grid-column: 2;
+    .cert-title{
+        grid-column:2;
     }
 
-    .cert-skills {
-        grid-column: 1 / -1;
-        margin-top: 6px;
+    .cert-issuer{
+        grid-column:2;
     }
 
-    .cert-actions {
-        grid-column: 1 / -1;
-        justify-content: flex-start;
-        margin-top: 8px;
+    .cert-skills{
+        grid-column:1 / -1;
+        margin-top:6px;
     }
 
-}
-
-@media (max-width: 576px) {
-
-    .cert-row {
-        padding: 16px;
-    }
-
-    .cert-logo img {
-        width: 36px;
-        height: 36px;
-    }
-
-    .cert-title h4 {
-        font-size: .95rem;
-    }
-
-    .cert-issuer,
-    .cert-skills,
-    .cert-link {
-        font-size: .85rem;
-    }
-
-    .cert-actions {
-        flex-wrap: wrap;
-        gap: 12px;
+    .cert-actions{
+        grid-column:1 / -1;
+        justify-content:flex-start;
+        margin-top:8px;
     }
 
 }
 
+@media (max-width:576px){
+
+    .cert-logo img{
+        width:36px;
+        height:36px;
+    }
+
+    .cert-title h4{
+        font-size:.95rem;
+    }
+
+    .cert-issuer{
+        font-size:.85rem;
+    }
+
+    .cert-skills span{
+        font-size:.6rem;
+        padding:3px 8px;
+    }
+
+    .cert-link{
+        font-size:.8rem;
+    }
+
+    .cert-actions{
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+}
   
  /*====================================================
 TESTIMONIALS
