@@ -162,31 +162,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    /*=========================================
-      READ MORE
-    =========================================*/
-
-    /*=========================================
+/*=========================================
 READ MORE
 =========================================*/
 
-const readMoreButtons = document.querySelectorAll(".read-more-btn");
+document.addEventListener("click", function (e) {
 
-readMoreButtons.forEach(button => {
+    const button = e.target.closest(".read-more-btn");
 
-    button.addEventListener("click", function () {
+    if (!button) return;
 
-        const text = this.previousElementSibling;
+    const text = button.previousElementSibling;
 
-        if (!text || !text.classList.contains("testimonial-text")) return;
+    if (!text || !text.classList.contains("testimonial-text")) return;
 
-        text.classList.toggle("expanded");
+    text.classList.toggle("expanded");
 
-        this.textContent = text.classList.contains("expanded")
-            ? "Read less"
-            : "Read more";
+    button.textContent = text.classList.contains("expanded")
+        ? "Read less"
+        : "Read more";
 
-    });
+    testimonialSwiper.update();
 
 });
 
