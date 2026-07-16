@@ -131,23 +131,29 @@ document.addEventListener("DOMContentLoaded", () => {
       READ MORE
     =========================================*/
 
-    readButtons.forEach(button => {
+readButtons.forEach(button => {
 
-        button.addEventListener("click", () => {
+    button.addEventListener("click", () => {
 
-            const text = button.previousElementSibling;
+        const text = button.previousElementSibling;
 
-            text.classList.toggle("expanded");
+        console.log("Read More clicked");
 
-            if (text.classList.contains("expanded")) {
-                button.textContent = "Read less";
-            } else {
-                button.textContent = "Read more";
-            }
+        if (text.classList.contains("expanded")) {
 
-        });
+            text.classList.remove("expanded");
+            button.textContent = "Read more";
+
+        } else {
+
+            text.classList.add("expanded");
+            button.textContent = "Read less";
+
+        }
 
     });
+
+});
 
     /*=========================================
       ARROWS
