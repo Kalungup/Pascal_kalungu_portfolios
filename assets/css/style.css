@@ -1441,18 +1441,6 @@ Responsive
     }
 
 }
-  /* ---------- contact ---------- */
-  .contact-grid{ display:flex; flex-wrap:wrap; gap:14px; margin-top:8px; }
-  .contact-btn{
-    display:inline-flex; align-items:center; gap:10px;
-    padding:14px 20px; border:1px solid var(--line); border-radius:var(--radius);
-    background:var(--panel); color:var(--ink); font-family:'IBM Plex Mono', monospace; font-size:13.5px;
-    transition:border-color 0.2s ease, color 0.2s ease;
-  }
-  .contact-btn:hover{ border-color:var(--teal); color:var(--teal); }
-
-  footer{ padding:36px 0; text-align:center; }
-  footer p{ margin:0; font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); }
 
   /* ---------------- Hero Responsive ---------------- */
 

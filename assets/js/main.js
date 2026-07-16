@@ -117,9 +117,21 @@ TESTIMONIALS
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* Read More / Read Less */
+    const slider = document.querySelector(".testimonials-grid");
+    const prevBtn = document.querySelector(".testimonial-prev");
+    const nextBtn = document.querySelector(".testimonial-next");
+    const readButtons = document.querySelectorAll(".read-more-btn");
 
-    document.querySelectorAll(".read-more-btn").forEach(button => {
+    if (!slider) return;
+
+    const scrollAmount = 360;
+    let autoScroll;
+
+    /*=========================================
+      READ MORE
+    =========================================*/
+
+    readButtons.forEach(button => {
 
         button.addEventListener("click", () => {
 
@@ -127,72 +139,83 @@ document.addEventListener("DOMContentLoaded", () => {
 
             text.classList.toggle("expanded");
 
-            button.textContent = text.classList.contains("expanded")
-                ? "Read less"
-                : "Read more";
+            if (text.classList.contains("expanded")) {
+                button.textContent = "Read less";
+            } else {
+                button.textContent = "Read more";
+            }
 
         });
 
     });
 
-    /* Auto-scroll carousel */
+    /*=========================================
+      ARROWS
+    =========================================*/
 
-    const slider = document.querySelector(".testimonials-grid");
+    prevBtn?.addEventListener("click", () => {
 
-    if (!slider) return;
-
-    const scrollAmount = 380;
-
-    let autoScroll = setInterval(nextSlide, 5000);
-
-    function nextSlide() {
-
-        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
-
-            slider.scrollTo({
-                left: 0,
-                behavior: "smooth"
-            });
-
-        } else {
-
-            slider.scrollBy({
-                left: scrollAmount,
-                behavior: "smooth"
-            });
-
-        }
-    }
-
-    /* Pause when hovering */
-
-    slider.addEventListener("mouseenter", () => {
-        clearInterval(autoScroll);
-    });
-
-    slider.addEventListener("mouseleave", () => {
-        autoScroll = setInterval(nextSlide, 5000);
-    });
-
-});
-
-const prev = document.querySelector(".testimonial-prev");
-const next = document.querySelector(".testimonial-next");
-
-if (prev && next) {
-
-    prev.addEventListener("click", () => {
         slider.scrollBy({
             left: -scrollAmount,
             behavior: "smooth"
         });
+
     });
 
-    next.addEventListener("click", () => {
+    nextBtn?.addEventListener("click", () => {
+
         slider.scrollBy({
             left: scrollAmount,
             behavior: "smooth"
         });
+
     });
 
-}
+    /*=========================================
+      AUTO SCROLL
+    =========================================*/
+
+    function startAutoScroll() {
+
+        autoScroll = setInterval(() => {
+
+            const reachedEnd =
+                slider.scrollLeft + slider.clientWidth >=
+                slider.scrollWidth - 10;
+
+            if (reachedEnd) {
+
+                slider.scrollTo({
+                    left: 0,
+                    behavior: "smooth"
+                });
+
+            } else {
+
+                slider.scrollBy({
+                    left: scrollAmount,
+                    behavior: "smooth"
+                });
+
+            }
+
+        }, 5000);
+
+    }
+
+    function stopAutoScroll() {
+
+        clearInterval(autoScroll);
+
+    }
+
+    startAutoScroll();
+
+    /*=========================================
+      PAUSE ON HOVER
+    =========================================*/
+
+    slider.addEventListener("mouseenter", stopAutoScroll);
+    slider.addEventListener("mouseleave", startAutoScroll);
+
+});
