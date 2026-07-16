@@ -646,86 +646,9 @@ Responsive
     }
 }
 
-  /* ---------- section shell ---------- */
-  /*=========================================
-SECTION LABEL
-=========================================*/
 
-.kicker{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:.75rem;
-
-    margin-bottom:1rem;
-
-}
-
-/* Left glowing node */
-
-.kicker-node{
-
-    width:10px;
-
-    height:10px;
-
-    border-radius:50%;
-
-    background:linear-gradient(
-        135deg,
-        #2FE3B4,
-        #25D6AA
-    );
-
-    box-shadow:
-        0 0 10px rgba(47,227,180,.55);
-
-}
-
-/* Connecting line */
-
-.kicker-line{
-
-    width:34px;
-
-    height:2px;
-
-    border-radius:2px;
-
-    background:linear-gradient(
-        to right,
-        #2FE3B4,
-        #E8A33D
-    );
-
-    box-shadow:
-        0 0 8px rgba(47,227,180,.25);
-
-}
-
-/* Text */
-
-.kicker-text{
-
-    font-family:"IBM Plex Mono", monospace;
-
-    font-size:.82rem;
-
-    font-weight:600;
-
-    letter-spacing:.20em;
-
-    text-transform:uppercase;
-
-    color:#D7E2DD;
-
-}
   section{ padding:80px 0; border-bottom:1px solid var(--line); }
   section:last-of-type{ border-bottom:none; }
-  .kicker{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--teal); margin-bottom:10px; display:flex; align-items:center; gap:8px; }
-  .kicker::before{ content:""; width:8px; height:8px; background:var(--amber); border-radius:1px; display:inline-block; }
   section h2.title{ font-size:1.9rem; font-weight:700; margin-bottom:28px; }
 
   /* ==========================================
@@ -744,16 +667,6 @@ SECTION LABEL
 /*-----------------------------------------
 Section Heading
 -----------------------------------------*/
-
-.kicker {
-    display: inline-block;
-    margin-bottom: 12px;
-    font-size: .85rem;
-    font-weight: 600;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--accent);
-}
 
 .title {
     margin-bottom: 60px;
