@@ -110,3 +110,89 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+/*====================================================
+TESTIMONIALS
+====================================================*/
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* Read More / Read Less */
+
+    document.querySelectorAll(".read-more-btn").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const text = button.previousElementSibling;
+
+            text.classList.toggle("expanded");
+
+            button.textContent = text.classList.contains("expanded")
+                ? "Read less"
+                : "Read more";
+
+        });
+
+    });
+
+    /* Auto-scroll carousel */
+
+    const slider = document.querySelector(".testimonials-grid");
+
+    if (!slider) return;
+
+    const scrollAmount = 380;
+
+    let autoScroll = setInterval(nextSlide, 5000);
+
+    function nextSlide() {
+
+        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
+
+            slider.scrollTo({
+                left: 0,
+                behavior: "smooth"
+            });
+
+        } else {
+
+            slider.scrollBy({
+                left: scrollAmount,
+                behavior: "smooth"
+            });
+
+        }
+    }
+
+    /* Pause when hovering */
+
+    slider.addEventListener("mouseenter", () => {
+        clearInterval(autoScroll);
+    });
+
+    slider.addEventListener("mouseleave", () => {
+        autoScroll = setInterval(nextSlide, 5000);
+    });
+
+});
+
+const prev = document.querySelector(".testimonial-prev");
+const next = document.querySelector(".testimonial-next");
+
+if (prev && next) {
+
+    prev.addEventListener("click", () => {
+        slider.scrollBy({
+            left: -scrollAmount,
+            behavior: "smooth"
+        });
+    });
+
+    next.addEventListener("click", () => {
+        slider.scrollBy({
+            left: scrollAmount,
+            behavior: "smooth"
+        });
+    });
+
+}
