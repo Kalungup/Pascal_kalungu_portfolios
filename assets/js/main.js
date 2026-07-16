@@ -117,111 +117,78 @@ TESTIMONIALS
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const slider = document.querySelector(".testimonials-grid");
-    const prevBtn = document.querySelector(".testimonial-prev");
-    const nextBtn = document.querySelector(".testimonial-next");
-    const readButtons = document.querySelectorAll(".read-more-btn");
-
-    if (!slider) return;
-
-    const scrollAmount = 360;
-    let autoScroll;
-
     /*=========================================
-      READ MORE
+      SWIPER
     =========================================*/
 
-readButtons.forEach(button => {
+    const testimonialSwiper = new Swiper(".testimonialSwiper", {
 
-    button.addEventListener("click", () => {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        speed: 800,
 
-        const text = button.previousElementSibling;
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true
+        },
 
-        console.log("Read More clicked");
+        navigation: {
+            nextEl: ".testimonial-next",
+            prevEl: ".testimonial-prev"
+        },
 
-        if (text.classList.contains("expanded")) {
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true
+        },
 
-            text.classList.remove("expanded");
-            button.textContent = "Read more";
+        keyboard: {
+            enabled: true
+        },
 
-        } else {
+        breakpoints: {
 
-            text.classList.add("expanded");
-            button.textContent = "Read less";
+            768: {
+                slidesPerView: 2
+            },
+
+            1100: {
+                slidesPerView: 3
+            }
 
         }
 
     });
 
-});
-
     /*=========================================
-      ARROWS
+      READ MORE
     =========================================*/
 
-    prevBtn?.addEventListener("click", () => {
+    document.querySelectorAll(".read-more-btn").forEach(button => {
 
-        slider.scrollBy({
-            left: -scrollAmount,
-            behavior: "smooth"
-        });
+        button.addEventListener("click", function () {
 
-    });
+            const card = this.closest(".testimonial-card");
+            const text = card.querySelector(".testimonial-text");
 
-    nextBtn?.addEventListener("click", () => {
+            text.classList.toggle("expanded");
 
-        slider.scrollBy({
-            left: scrollAmount,
-            behavior: "smooth"
-        });
+            if (text.classList.contains("expanded")) {
 
-    });
-
-    /*=========================================
-      AUTO SCROLL
-    =========================================*/
-
-    function startAutoScroll() {
-
-        autoScroll = setInterval(() => {
-
-            const reachedEnd =
-                slider.scrollLeft + slider.clientWidth >=
-                slider.scrollWidth - 10;
-
-            if (reachedEnd) {
-
-                slider.scrollTo({
-                    left: 0,
-                    behavior: "smooth"
-                });
+                this.textContent = "Read less";
 
             } else {
 
-                slider.scrollBy({
-                    left: scrollAmount,
-                    behavior: "smooth"
-                });
+                this.textContent = "Read more";
 
             }
 
-        }, 5000);
+            testimonialSwiper.updateAutoHeight();
 
-    }
+        });
 
-    function stopAutoScroll() {
-
-        clearInterval(autoScroll);
-
-    }
-
-    startAutoScroll();
-
-    /*=========================================
-      PAUSE ON HOVER
-    =========================================*/
-
-    slider.addEventListener("mouseenter", stopAutoScroll);
-    slider.addEventListener("mouseleave", startAutoScroll);
+    });
 
 });
