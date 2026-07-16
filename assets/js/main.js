@@ -166,29 +166,28 @@ document.addEventListener("DOMContentLoaded", () => {
       READ MORE
     =========================================*/
 
-    document.querySelectorAll(".read-more-btn").forEach(button => {
+    /*=========================================
+READ MORE
+=========================================*/
 
-        button.addEventListener("click", function () {
+const readMoreButtons = document.querySelectorAll(".read-more-btn");
 
-            const card = this.closest(".testimonial-card");
-            const text = card.querySelector(".testimonial-text");
+readMoreButtons.forEach(button => {
 
-            text.classList.toggle("expanded");
+    button.addEventListener("click", function () {
 
-            if (text.classList.contains("expanded")) {
+        const text = this.previousElementSibling;
 
-                this.textContent = "Read less";
+        if (!text || !text.classList.contains("testimonial-text")) return;
 
-            } else {
+        text.classList.toggle("expanded");
 
-                this.textContent = "Read more";
-
-            }
-
-            testimonialSwiper.updateAutoHeight();
-
-        });
+        this.textContent = text.classList.contains("expanded")
+            ? "Read less"
+            : "Read more";
 
     });
+
+});
 
 });
