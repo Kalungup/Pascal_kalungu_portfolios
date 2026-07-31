@@ -2466,8 +2466,7 @@ PROJECTS
 .project-image{
     width:100%;
     height:100%;
-    object-fit:contain;      
-    background:#0B0F0E;     
+    object-fit:cover;
     display:block;
 }
 
