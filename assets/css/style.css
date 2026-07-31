@@ -29,6 +29,16 @@ Author: Pascal Kalungu
     --teal-dim:#1C6F5C;
     --amber:#E8A33D;
     --radius:6px;
+    --accent:#38BDF8;      /* powers stat-card hover, tabs, .highlight, hero-meta hover */
+    --text:#FFFFFF;
+    --text-light:#B7C4BE;  /* body copy tone, slightly cooler than --ink-soft */
+    --radius-sm:8px;
+    --radius-md:14px;
+    --radius-lg:20px;
+    --radius-pill:999px;
+    --cyan:#22D3EE;
+    --gold:#FBBF24;
+
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -3083,13 +3093,6 @@ Logo
     color:var(--accent);
     font-size:0.95rem;
 }
-
-.hero-meta i{
-    color:#22e6c7 !important;
-    margin-right:8px;
-    font-size:15px;
-}
-
 .certificate-modal{
     position:fixed;
     inset:0;
@@ -3188,5 +3191,23 @@ PROFESSIONAL SUMMARY - MOBILE
     .tabs{
         justify-content:center;
     }
+/* Custom text selection */
+::selection{
+    background:var(--teal);
+    color:#0B0F0E;
+}
 
+/* Smoother scrollbar (webkit) */
+::-webkit-scrollbar{ width:10px; }
+::-webkit-scrollbar-track{ background:var(--bg); }
+::-webkit-scrollbar-thumb{
+    background:var(--teal-dim);
+    border-radius:999px;
+}
+::-webkit-scrollbar-thumb:hover{ background:var(--teal); }
+
+/* Subtle image zoom on hover, reusable anywhere with class="img-zoom" */
+.img-zoom{ overflow:hidden; border-radius:var(--radius-md); }
+.img-zoom img{ transition:transform .5s ease; }
+.img-zoom:hover img{ transform:scale(1.06); }
 }
