@@ -2470,6 +2470,12 @@ PROJECTS
     display:block;
 }
 
+.project-logo{
+    object-fit:contain;
+    padding:2rem;
+    background:#000;
+}
+
 .preview-overlay{
     position:absolute;
     inset:0;
